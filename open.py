@@ -3,6 +3,8 @@ import webbrowser
 
 __version__ = "0.0.1"
 
+CHROME_PATH = r'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+
 
 def get_parser():
     """ 解析命令行参数
@@ -30,11 +32,10 @@ def command_line_runner():
         print(__version__)
         return
 
-    if not args['query']:
+    if not args['url']:
         parser.print_help()
         return
-
-    webbrowser.open(args['query'])
+    webbrowser.get(CHROME_PATH).open("".join(args['url']))
 
 
 if __name__ == "__main__":
